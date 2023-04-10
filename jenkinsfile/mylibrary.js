@@ -10,8 +10,8 @@ pipeline {
 
 					echo "test NNT"
 					def libraryPath = "${WORKSPACE}/mylibrary.js"
-					def cl = this.class.classLoader
-					cl.addURL(new URL("file://${libraryPath}/"))
+					def cl = new GroovyClassLoader(getClass().getClassLoader())
+					cl.addClasspath(libraryPath)
 					def greeting = MyLibrary.sayHello('Jenkins')
                     echo greeting
                 }
