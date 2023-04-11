@@ -1,24 +1,18 @@
-// @Library('mylibrary') _
-library identifier: 'localTest@master',
-    // 'mylibraryname' is just an identifier, it can be anything you like
-    // 'master' refers to a valid git ref (branch)
-    retriever: modernSCM([
-      $class: 'GitSCMSource',
-    //   credentialsId: 'your-credentials-id', // remove this if it's public!
-      remote: 'https://github.com/ngoctrang2206/hello-world.git'
-    ])
 pipeline {
     agent any
-
     stages {
-        stage('Say Hello') {
+        stage('Load File') {
             steps {
-                script {
-					echo "test NNT"
-                    helloWorld "Test message"
-					// def greeting = MyLibrary.sayHello('Jenkins')
-                    // echo greeting
-                }
+                // Clone the Git repository
+                checkout([
+                    $class: 'GitSCM',
+                    branches: [[name: 'master']],
+                    userRemoteConfigs: [[url: 'https://github.com/ngoctrang2206/hello-world.git']]
+                ])
+                // Load the file from the repository
+                def myScript = load '$WORKSPACE/var/myfile.groovy'
+                // Call a function in the loaded script
+                myScript.myFunction()
             }
         }
     }
