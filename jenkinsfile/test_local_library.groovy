@@ -1,4 +1,3 @@
-def myScript
 pipeline {
     agent any
     stages {
@@ -15,11 +14,8 @@ pipeline {
                         // Load the file from the repository
                         sh "cp -R var/myfile.groovy $WORKSPACE "
                         sh "ls $WORKSPACE "
-                        def myScript1 = load 'myfile.groovy'
-                        echo "1"
-                        if (myScript[0] == null ) {
-                                myScript.add(${myScript1})
-                        }
+                        sh "chmod 777 myfile.groovy "
+                        def myScript = load 'myfile.groovy'
                         echo myScript
                         myScript.myFunction()
                     }
