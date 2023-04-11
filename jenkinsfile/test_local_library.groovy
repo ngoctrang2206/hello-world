@@ -15,6 +15,7 @@ pipeline {
                         sh "cp -R var/myfile.groovy $WORKSPACE "
                         sh "ls $WORKSPACE "
                         def myScript = load 'myfile.groovy'
+                        echo myScript
                         myScript.myFunction()
                     }
             }
