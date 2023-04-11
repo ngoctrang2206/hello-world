@@ -9,10 +9,14 @@ pipeline {
                     branches: [[name: 'master']],
                     userRemoteConfigs: [[url: 'https://github.com/ngoctrang2206/hello-world.git']]
                 ])
-                // Load the file from the repository
-                def myScript = load "var/myfile.groovy"
-                // Call a function in the loaded script
-                myScript.myFunction()
+                    script {
+                        sh "pwd $WORKSPACE "
+                        // Load the file from the repository
+                        sh "cp -R var/myfile.groovy $WORKSPACE "
+                        sh "ls $WORKSPACE "
+                        def myScript = load 'myfile.groovy'
+                        myScript.myFunction()
+                    }
             }
         }
     }
