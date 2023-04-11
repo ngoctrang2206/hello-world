@@ -1,4 +1,7 @@
 #! /usr/bin/env groovy
-def myFunction() {
-    echo "Hello world!"
+package com.nntrang
+class ExampleClass{
+	def myFunction() {
+		echo "Hello world!"
+	}
 }

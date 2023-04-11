@@ -16,8 +16,8 @@ pipeline {
                         sh "ls $WORKSPACE "
                         sh "chmod 777 myfile.groovy "
                         def myScript = load 'myfile.groovy'
-                        echo myScript
-                        myScript.myFunction()
+                        def example = new com.nntrang.ExampleClass()
+                        example.myFunction()
                     }
             }
         }
