@@ -14,11 +14,9 @@ pipeline {
                         sh "pwd $WORKSPACE "
                         // Load the file from the repository
                         sh "cp -R var/myfile.groovy $WORKSPACE "
-                        sh "ls $WORKSPACE "
-                        sh "chmod 777 myfile.groovy "
-                        def myScript = load 'myfile.groovy'
-                        def example = new com.nntrang.ExampleClass()
-                        example.myFunction()
+						sh "cp -R var/asvms.yml $WORKSPACE "
+						def vms = readYaml file: "asvms.yml"
+						echo "${vms.size()}"
                     }
             }
         }

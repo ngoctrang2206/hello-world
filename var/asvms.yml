@@ -1,0 +1,55 @@
+as_vms:
+  0: 
+  - vmName:                   CIDB10
+    vmType:                   db
+    rgName:                   TMA0
+    rgProviderName:           vmware_provider_access_primary
+    rebuildCheck:             True
+  - vmName:                   CIEM10
+    vmType:                   sm
+    rgName:                   TMA0
+    rgProviderName:           vmware_provider_access_primary
+    rebuildCheck:             True
+  - vmName:                   CIEM10
+    vmType:                   am
+    rgName:                   TMA0
+    rgProviderName:           vmware_provider_access_primary
+    rebuildCheck:             False
+  - vmName:                   CIPA10
+    vmType:                   pa
+    rgName:                   TMA0
+    rgProviderName:           vmware_provider_access_primary
+    rebuildCheck:             True
+  - vmName:                   CISS10
+    vmType:                   sesm
+    rgName:                   TMA0
+    rgProviderName:           vmware_provider_access_primary
+    rebuildCheck:             True
+
+  1: 
+  - vmName:                   CIDB11
+    vmType:                   db
+    rgName:                   TMA1
+    rgProviderName:           vmware_provider_access_secondary
+    rebuildCheck:             True
+  - vmName:                   CIEM11
+    vmType:                   sm
+    rgName:                   TMA1
+    rgProviderName:           vmware_provider_access_secondary
+    rebuildCheck:             True
+  - vmName:                   CIEM11
+    vmType:                   am
+    rgName:                   TMA1
+    rgProviderName:           vmware_provider_access_secondary
+    rebuildCheck:             False
+  - vmName:                   CIPA20
+    vmType:                   pa
+    rgName:                   TMA1
+    rgProviderName:           vmware_provider_access_secondary
+    rebuildCheck:             True
+  - vmName:                   CISS11
+    vmType:                   sesm
+    rgName:                   TMA1
+    rgProviderName:           vmware_provider_access_secondary
+    rebuildCheck:             True
+
